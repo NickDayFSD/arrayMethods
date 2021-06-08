@@ -28,6 +28,14 @@ describe('function simulates array method', () => {
     'CHERRYL'
   ];
 
+  const numbers = [
+    3,
+    6,
+    9,
+    12,
+    15
+  ];
+
   test('MAP takes the array of names and puts them in lower case', () => {
     const method = names.map(name => 
       name.toLowerCase()
@@ -42,7 +50,21 @@ describe('function simulates array method', () => {
     expect(fn).toEqual(method);
   });
 
-  test('test notes here', () => {
+  test('MAP takes the array of numbers and adds 3', () => {
+    const method = numbers.map(num => 
+      num + 3
+    );
+
+    function addThree(num) {
+      return num + 3;
+    }
+
+    const fn = map(numbers, addThree);
+
+    expect(fn).toEqual(method);
+  });
+
+  test.skip('FILTER takes an array of names and displays c names', () => {
     const method = names.filter(name => name.startsWith('c'));
 
     function startsWithC(string) {
