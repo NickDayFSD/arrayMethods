@@ -64,11 +64,11 @@ describe('function simulates array method', () => {
     expect(fn).toEqual(method);
   });
 
-  test.skip('FILTER takes an array of names and displays c names', () => {
+  test('FILTER takes an array of names and displays c names', () => {
     const method = names.filter(name => name.startsWith('c'));
 
     function startsWithC(string) {
-      string.startsWith('c');
+      return string.startsWith('c');
     }
     
     const fn = filter(names, startsWithC);

@@ -5,3 +5,13 @@ export function map(arr, callback) {
   }
   return arr;
 }
+
+export function filter(arr, callback) {
+  const newArr = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(callback(arr[i])) {
+      newArr[newArr.length] = arr[i];
+    }
+  }
+  return newArr;
+}
