@@ -27,16 +27,16 @@ describe('homebrew array methods', () => {
     'CHERRYL'
   ];
 
-  test('test notes here', () => {
+  test('takes the array of names and puts them in lower case', () => {
     const input = names.map(name => 
       name.toLowerCase()
     );
 
     function lowerCase(string) {
-      string.toLowerCase();
+      return string.toLowerCase();
     }
 
-    const output = map(names, lowerCase());
+    const output = map(names, lowerCase);
 
     expect(output).toEqual(input);
   });
