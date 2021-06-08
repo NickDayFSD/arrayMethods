@@ -1,8 +1,9 @@
 import {
-  map
+  map,
+  filter
 } from './array-methods.js';
 
-describe('homebrew array methods', () => {
+describe('function simulates array method', () => {
 
   const names = [
     'PORSCHE',
@@ -27,8 +28,8 @@ describe('homebrew array methods', () => {
     'CHERRYL'
   ];
 
-  test('takes the array of names and puts them in lower case', () => {
-    const input = names.map(name => 
+  test('MAP takes the array of names and puts them in lower case', () => {
+    const method = names.map(name => 
       name.toLowerCase()
     );
 
@@ -36,8 +37,21 @@ describe('homebrew array methods', () => {
       return string.toLowerCase();
     }
 
-    const output = map(names, lowerCase);
+    const fn = map(names, lowerCase);
 
-    expect(output).toEqual(input);
+    expect(fn).toEqual(method);
   });
+
+  test('test notes here', () => {
+    const method = names.filter(name => name.startsWith('c'));
+
+    function startsWithC(string) {
+      string.startsWith('c');
+    }
+    
+    const fn = filter(names, startsWithC);
+
+    expect(fn).toEqual(method);
+  });
+
 });
