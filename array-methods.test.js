@@ -88,5 +88,17 @@ describe('function simulates array method', () => {
 
     expect(fn).toEqual(method);
   });
+  
+  test('FINDINDEX takes an array of numbers and finds the first number greater than 5, returning the index of that number', () => {
+    const method = numbers.findIndex(num => num > 5);
+
+    function greaterThanFive(num) {
+      return num > 5;
+    }
+
+    const fn = firstIndex(numbers, greaterThanFive);
+
+    expect(fn).toEqual(method);
+  });
 
 });
