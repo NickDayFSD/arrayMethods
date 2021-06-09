@@ -2,7 +2,8 @@ import {
   map,
   filter,
   firstIndex,
-  reduce
+  reduce,
+  every
 } from './array-methods.js';
 
 describe('function simulates array method', () => {
@@ -114,6 +115,18 @@ describe('function simulates array method', () => {
 
 
     const fn = reduce(arr, callback, [initialValue]);
+    expect(fn).toEqual(method);
+  });
+
+  test('EVERY returns true if all values are less than 20', () => {
+    const method = numbers.every(num => num < 20);
+
+    function underTwenty(num) {
+      return num < 20;
+    }
+
+    const fn = every(numbers, underTwenty);
+
     expect(fn).toEqual(method);
   });
 
