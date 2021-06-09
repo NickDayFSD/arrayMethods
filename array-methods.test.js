@@ -2,7 +2,7 @@ import {
   map,
   filter,
   firstIndex,
-  // reduce,
+  reduce,
   every
 } from './array-methods.js';
 
@@ -103,7 +103,7 @@ describe('function simulates array method', () => {
     expect(fn).toEqual(method);
   });
 
-  test.skip('test notes here', () => {
+  test('REDUCE counts letters per string and produces a list', () => {
     const method = names
       .reduce((total, { length }) => {
         const lengthKey = length.toString();
@@ -112,9 +112,15 @@ describe('function simulates array method', () => {
         return total;
       }, {});
 
+    function letterCount(accumulator, { length }) {
+      const lengthKey = length.toString();
+      if(!(lengthKey in accumulator)) accumulator[lengthKey] = 0;
+      accumulator[lengthKey] += 1;
+      return accumulator;
+    }
 
+    const fn = reduce(names, letterCount);
 
-    const fn = reduce(arr, callback, [initialValue]);
     expect(fn).toEqual(method);
   });
 

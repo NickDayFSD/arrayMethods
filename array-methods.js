@@ -25,9 +25,15 @@ export function firstIndex(arr, callback) {
   return -1;
 }
 
-// export function reduce(arr, callback) {
-  
-// };
+export function reduce(arr, callback, init = {}) {
+  const total = init;
+
+  for(let i = 0; i < arr.length; i++) {
+    callback(total, arr[i]);
+  }
+
+  return total;
+}
 
 export function every(arr, callback) {
   for(let i = 0; i < arr.length; i++) {
