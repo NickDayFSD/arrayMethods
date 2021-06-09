@@ -1,7 +1,8 @@
 import {
   map,
   filter,
-  firstIndex
+  firstIndex,
+  reduce
 } from './array-methods.js';
 
 describe('function simulates array method', () => {
@@ -98,6 +99,21 @@ describe('function simulates array method', () => {
 
     const fn = firstIndex(numbers, greaterThanFive);
 
+    expect(fn).toEqual(method);
+  });
+
+  test.skip('test notes here', () => {
+    const method = names
+      .reduce((total, { length }) => {
+        const lengthKey = length.toString();
+        if(!(lengthKey in total)) total[lengthKey] = 0;
+        total[lengthKey] += 1;
+        return total;
+      }, {});
+
+
+
+    const fn = reduce(arr, callback, [initialValue]);
     expect(fn).toEqual(method);
   });
 
