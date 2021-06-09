@@ -1,6 +1,7 @@
 import {
   map,
-  filter
+  filter,
+  firstIndex
 } from './array-methods.js';
 
 describe('function simulates array method', () => {
@@ -72,6 +73,18 @@ describe('function simulates array method', () => {
     }
     
     const fn = filter(names, startsWithC);
+
+    expect(fn).toEqual(method);
+  });
+
+  test('FINDINDEX takes an array of names and returns the index of the first c name', () => {
+    const method = names.findIndex(name => name.startsWith('c'));
+
+    function startsWithC(string) {
+      return string.startsWith('c');
+    }
+
+    const fn = firstIndex(names, startsWithC);
 
     expect(fn).toEqual(method);
   });
