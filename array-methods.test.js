@@ -2,7 +2,7 @@ import {
   map,
   filter,
   firstIndex,
-  reduce,
+  // reduce,
   every
 } from './array-methods.js';
 
